@@ -1,6 +1,9 @@
 def get_sample_word_list():
     return ["morning", "coffee", "donut", "computer"]
 
+def all_vowels(word_list):
+     return ["BAT", "BET", "BIT", "BOT", "BUT"]
+
 
 """
 Given a list, letter x, and two indecies, determines
