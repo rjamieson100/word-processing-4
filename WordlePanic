@@ -1,0 +1,54 @@
+'''
+Olivia Chezzi, Python version 1 - Saturday, March 22
+'''
+
+
+
+def WordlePanic (listy):
+    '''
+    this function takes a word from a list and determines if you could guess
+    the wordle based off the other words in the list.
+    @param list: the list of words from the text file
+    @return: ***either none or a list of words, but it needs to be printed
+    so probably returns none and prints it in the function
+    '''
+
+    for x in range(len(listy)):
+        word_count = 0
+        incorrect_letters = 0
+        word = listy[x]
+        n = x+1
+        #this is for later, if there are two of the exact same word
+        wrong_letter = -1
+
+        while n < len(listy):
+            next_word = listy[n]
+            #print (word, next_word)
+            i = 0
+            for i in range(len(listy[x])):
+                if word[i] != next_word[i]:
+                    incorrect_letters += 1
+                    wrong_letters = i
+                x += 1
+                i +=1
+            if incorrect_letters == 1:
+                word_count += 1
+            elif incorrect_letters > 1:
+                break
+            n += 1
+            incorrect_letters = 0;
+            print(i)
+
+        if word_count >= 5:
+            print ("Yay!")
+        else:
+            print ("OHH!")
+            
+        x += word_count + 1
+
+
+
+practice_list = ["Shade", "Shake", "Share", "Shape", "Shave","Shame","Basic",
+                 "Basil", "Basis", "Basin"]
+WordlePanic (practice_list)
+                    
