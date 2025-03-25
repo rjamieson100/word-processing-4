@@ -90,6 +90,90 @@ def here_or_there(word_list, letter, num_1, num_2):
     else:
         return -1
 
+def wordle_panic (file_list):
+    '''
+    this function takes a word from a list and determines if you could guess
+    the wordle based off the other words in the list.
+    @param list: the list of words from the text file
+    @return: a list of words
+    Big O Notation: O(n^2)
+    '''
+    listy = []
+    #only gets the five letter words
+    for x in file_list:
+        if len(x) == 5:
+            listy.append(x)
+
+    listy = [x.lower() for x in listy]
+    listy = sorted(listy)
+    x = 0
+    word_list = []
+    #this loop goes through all the elements of the list. It's a while loop
+    #because it needs to increase by more than just one sometimes.
+    while x < len(listy):
+        word_count = 0
+        word = listy[x]
+        n = x+1
+
+        #This loop is used to compare the list @ x to the next position of
+        #the list. This makes it so that n can increase while x remains the
+        #same.
+        while n < len(listy):
+            next_word = listy[n]
+            incorrect_letters = 0
+            #compares the letters of two words
+            for i in range(len(listy[x])):
+                if word[i] != next_word[i]:
+                    incorrect_letters += 1
+                    if incorrect_letters == 1 and word_count == 0:
+                        letter = i
+
+            #only adds a word if they only have a one letter difference  
+            if incorrect_letters == 1:
+                word_count += 1
+                wrong_letter = letter
+            elif incorrect_letters > 1:
+                break
+            n += 1
+
+        # >= 4 because it doesn't count the starting word
+        if word_count >= 4:
+            wordle_word = ""
+            for i in listy[x]:
+                if i == word[wrong_letter]:
+                    wordle_word += "_"
+                else:
+                    wordle_word += i
+            word_list.append(wordle_word)
+
+        x += word_count+1
+
+    #this is for words that only have different first letters
+    first_let_list = []
+    for x in range(len(listy)):
+        first_let_list.append(listy[x][1:])
+    first_let_list = sorted(first_let_list)
+    
+    x = 0
+    while x < len(first_let_list):
+        count = 0
+        while first_let_list[x]==first_let_list[count+1]:
+            count += 1
+            if count+1 > len(first_let_list)-1:
+                #break here because otherwise it'll crash as it is out of index
+                break
+
+        # >= 4 because it doesn't count the starting word
+        if count >= 4:
+            wordle_word = "_" + first_let_list[count]
+            word_list.append(wordle_word)
+            
+        x += count+1
+    
+    return word_list
+
+
+
 def menu_phase(phase):
     
     for x in range(100):
@@ -162,7 +246,8 @@ def function_menu():
         print("Merica")
     elif selection == 5:
         ##Instert call for Wordle Panic
-        print("Merica")
+        wordle = wordle_panic(words_list)
+        print(wordle)
     elif selection == 6:
         ##Instert call for Crossword Solver
         print("Merica")
