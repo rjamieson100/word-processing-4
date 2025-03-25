@@ -22,7 +22,8 @@ def WordlePanic (file_list):
     for x in file_list:
         if len(x) == 5:
             listy.append(x)
-    
+
+    listy = [x.lower() for x in listy]
     listy = sorted(listy)
     x = 0
     word_list = []
