@@ -8,7 +8,7 @@ the first letter.
 
 
 
-def WordlePanic (file_list):
+def wordle_panic (file_list):
     '''
     this function takes a word from a list and determines if you could guess
     the wordle based off the other words in the list.
