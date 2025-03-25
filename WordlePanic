@@ -12,7 +12,7 @@ def WordlePanic (file_list):
     '''
     this function takes a word from a list and determines if you could guess
     the wordle based off the other words in the list.
-    @param list: the list of words from the text file
+    @param file_list: the list of words from the text file
     @return: a list of words
     Big O Notation: O(n^2) - it runs through the list for every element in the list
     '''
