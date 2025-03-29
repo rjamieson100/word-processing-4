@@ -1,0 +1,55 @@
+Controls:
+- Navigate all menus using w(up) and s(down) to highlight buttons.
+
+- press "enter" to select a button while it is highlighted.
+
+Functions:
+- Navigate with w(up) and s(down) to highlight a function.
+
+- Press "enter" to select a highlighted function.
+
+- Press "m" to return to menu.
+
+- The "All Vowels" function must be launched from it's own file 
+  "VowelPositionFinder.class"
+
+- after a completed function call, an end screen menu will pop up, 
+  press "m" to return to menu, "f" to call a new function,
+  or (esc) to close the program.
+
+- details about the functions and their params / returns / big O can be found
+  in "menu.py" at the following lines:
+
+  Most Letters: 128
+  'Merica: 165
+  Backwards: 230
+  Odd/Even: 261
+  Wordle Panic: 266
+  Crossword Solver: 351
+  Minus One: 378
+  Plus One: 399
+  Anagram: 433
+  Anagrams Minus One: 476
+  Here or There: 507
+
+Words:
+- Press "m" to return to menu.
+
+- Press "e" to edit the file:
+  * Press "a" to add a word to the file:
+     Adds an inputted word the end of the file.
+
+  * Press "i" to insert a word in the file:
+     Inserts an inputted word onto a specified line.
+
+  * Press "r" to remove a word / line from the file.
+     Removes either a specified word or line from the file.
+  
+  * Press "c" to change a line in the file.
+     Replaces the current word with an inputted word on the
+     specified line.
+  * Press "x" to cancel:
+     Closes the edit menu.
+
+Credits:
+- Press "m" to return to menu. 
